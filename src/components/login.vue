@@ -22,7 +22,7 @@
         methods:{
             login(){
                 const _this = this;
-                 console.log(_this.$store.state)
+                 //console.log(_this.$store.state)
                 this.$store.dispatch('login',this.newuser)
                 .then(function(){
                     //console.log(this.$store.state)

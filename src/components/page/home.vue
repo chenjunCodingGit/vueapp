@@ -24,6 +24,7 @@
 export default {
   created(){
     this.$parent.$children[0]._data.text = "个人中心";
+    //console.log(this.$parent.$el)
   },
   methods:{
     addJoke(){

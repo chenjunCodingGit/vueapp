@@ -7,6 +7,7 @@ export default {
             .then(function(data) {
                 cb(data.data.result.data)
             })
+            //console.log(cb)
     },
     getjoke: function(cb) {
         var tmp = Date.parse(new Date()).toString();

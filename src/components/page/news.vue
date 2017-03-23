@@ -1,36 +1,50 @@
 <template>
-  <div class="news">
-    <div v-for="item in list.aaa" >
-
-    <mu-paper class="demo-paper" :zDepth="2">
-
-      <a :href="item.url" >
-        <img :src="item.thumbnail_pic_s" >
-        <p>{{item.title}}</p>
-      </a>
-
-    </mu-paper>
-    </div>
+<div>
+  <mu-tabs :value="activeTab" @change="handleTabChange" class="top">
+    <mu-tab value="tab1" title="TAB ONE"/>
+    <mu-tab value="tab2" title="TAB TWO"/>
+    <mu-tab value="tab3" @active="handleActive" title="TAB ACTIVE"/>
+  </mu-tabs>
+  <div v-if="activeTab === 'tab1'">
+    <h2>Tab One</h2>
+    <p>
+      这是第一个 tab
+    </p>
   </div>
+  <div v-if="activeTab === 'tab2'">
+    <h2>Tab Two</h2>
+    <p>
+      这是第二个 tab
+    </p>
+  </div>
+  <div v-if="activeTab === 'tab3'">
+    <h2>Tab Three</h2>
+    <p>
+      这是第三个 tab
+    </p>
+  </div>
+</div>
 </template>
 
 <script>
 export default {
-    created (){
-        this.$parent.$children[0]._data.text = "新闻";
-        this.$store.dispatch('getNews')
-    },
-    computed:{
-        list(){
-        return {
-            aaa: this.$store.state.news.list
-        }
-        }
+  data () {
+    return {
+      activeTab: 'tab1'
     }
+  },
+  methods: {
+    handleTabChange (val) {
+      this.activeTab = val
+    },
+    handleActive () {
+      this.activeTab = val
+    }
+  }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style  lang="scss"> 
-
+<style> 
+  .top{
+    margin-top:0px;
+  }
 </style>
